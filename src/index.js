@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import thunk from 'redux-thunk';
+
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import songs from './reducers/songs';
+
+const reducers = combineReducers({
+  songs: songs
+})
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+ reducers,
+ composeEnhancer(applyMiddleware(thunk)),
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
