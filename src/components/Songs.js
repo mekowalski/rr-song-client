@@ -13,6 +13,7 @@ class Songs extends React.Component {
   render() {
     return (
       <div className="Songs">
+      <p>Songs</p>
       {this.props.songs ? this.props.songs.map(song => <SongDetail song={song}/>) : 'no songs'}
       </div>
     );

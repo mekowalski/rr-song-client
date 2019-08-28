@@ -1,11 +1,11 @@
 import api from '../api/api';
-import GET_SONGS_SUCCESS  from '../reducers/songs';
+// import GET_SONGS_SUCCESS  from '../reducers/songs';
 
 export const getSongs = () => {
   return dispatch => {
     return api.get('/songs')
     .then(songs => {
-      dispatch({ type: GET_SONGS_SUCCESS, payload: songs })
+      dispatch({ type: 'GET_SONGS_SUCCESS', songs })
       console.log(songs)
     })
   }
