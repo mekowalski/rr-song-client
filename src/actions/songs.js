@@ -5,9 +5,15 @@ export const getSongs = () => {
   return dispatch => {
     return api.get('/songs')
     .then(songs => {
-      dispatch({ type: 'GET_SONGS_SUCCESS', songs })
-      console.log(songs)
+      dispatch(getSongsSuccess(songs))
     })
+  }
+}
+
+export const getSongsSuccess = (songs) => {
+  return {
+    type: 'GET_SONGS_SUCCESS',
+    songs
   }
 }
 
