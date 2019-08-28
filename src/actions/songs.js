@@ -17,5 +17,6 @@ export const getSongs = () => {
     const response = api.get('/songs')
 
     dispatch({ type: GET_SONGS_SUCCESS, payload: response.data })
+    console.log(response) //this does log the promise retuens with the 2 songs
   }
 }
