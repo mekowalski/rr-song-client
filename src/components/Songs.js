@@ -1,9 +1,13 @@
 import React from 'react';
 import SongDetail from './SongDetail';
+import { connect } from 'react-redux';
+import { getSongs } from '../actions/songs';
 
 class Songs extends React.Component {
   componentDidMount() {
-
+    // no longer just a simple action creator inoraction
+    // it's now store.dispatch(getStong())
+    this.props.getSongs()
   }
 
   render() {
@@ -15,4 +19,8 @@ class Songs extends React.Component {
   }
 }
 
-export default Songs;
+const mapStateToProps = (state) => {
+  return { songs: state.songs }
+}
+
+export default connect(mapStateToProps, { getSongs: getSongs })(Songs);
